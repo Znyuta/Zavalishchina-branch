@@ -1,0 +1,18 @@
+SELECT last_name, "group"
+FROM Students;
+
+SELECT Percent, count("id.stud_1"), count("id.stud_2")
+FROM Scholarship
+WHERE ("id.stud_1" = (SELECT "id.stud" 
+FROM Scholarship
+WHERE "id.stud" = 400)) AND ("id.stud_2" = (SELECT "id.stud" 
+FROM Scholarship
+WHERE "id.stud" = 0));
+
+INSERT INTO Students (last_name, name, "group")
+VALUES ('Кубарский', 'Антон', '123');
+
+SELECT name, last_name, Results
+FROM Students 
+INNER JOIN Scholarship 
+WHERE "Students.id.stud" = "Scholarship.id.stud"
